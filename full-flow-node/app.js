@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
   //SERVER CONNECTION +MDS
   const server =express()
   //connecting build
-  server.use(express.static("build"))
+//   server.use(express.static("build"))
   
 server.use(cors())
 server.use(express.json())
