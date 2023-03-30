@@ -1,6 +1,11 @@
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+
+const url ='https://test16-elo6.onrender.com'
+//"http://localhost:8080/full" (previous)
+
+
 function App() {
   const [form,setForm] =useState({})
 
@@ -19,23 +24,27 @@ const handleForm=(e)=>{
 
 //fetching
 
-const handleSubmit= async(e)=>{
-  e.preventDefault()
- 
-  const res =await axios({
-    method: 'post',
-    url: "http://localhost:8080/full",
-    data: form
-    
-  });
-  console.log(res.data)
 
-}
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await axios({
+      method: "post",
+      url: `${url}/full`,
+      data: form,
+    });
+    console.log(res.data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+//
 
 const getAllUsers =async ()=>{
    const res= await axios({
     method: 'get',
-    url: "http://localhost:8080/full",
+    url:`${url}/full`,
   
   });
   const doc=res.data
@@ -50,7 +59,7 @@ const handleDelete=(e)=>{
   const id=e.currentTarget.id
   axios({
     method: 'delete',
-    url: `http://localhost:8080/full/${id}`,
+    url: `${url}/full/${id}`,
     
   });
    
