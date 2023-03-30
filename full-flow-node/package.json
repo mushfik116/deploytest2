@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js",
-    "postinstall": "npm install -D webpack-cli"
+    "build":"npm i"
   },
   "keywords": [],
   "author": "",
